@@ -3,6 +3,8 @@ import { Home } from './pages/Home';
 import { LayoutComponent } from "./components/Layout";
 import { Schedule } from './pages/Schedule';
 import { ConfirmationPage } from './pages/ConfirmationPage';
+import { AppointmentManagement } from './pages/AppointmentManagement';
+import { CancellationPage } from './pages/CancellationPage';
 
 function App() {
 
@@ -12,7 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/agendar" element={<Schedule />} />
+          <Route path="/gestion-citas" element={<AppointmentManagement />} />
           <Route path="/confirmacion" element={<ConfirmationPage />} />
+          <Route path="/cancelacion" element={<CancellationPage />} />
         </Routes>
       </LayoutComponent>
     </Router>

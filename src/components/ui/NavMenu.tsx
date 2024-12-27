@@ -49,14 +49,14 @@ export const NavMenu = () => {
               Agendar
             </NavLink>
             <NavLink
-              to="/cancelar"
+              to="/gestion-citas"
               className={({ isActive }) =>
                 `text-sm font-medium uppercase ${
                   isActive ? "text-yellow-400" : "text-white hover:text-yellow-300"
                 }`
               }
             >
-              Cancelar
+              Gestión de Citas
             </NavLink>
           </div>
         </div>

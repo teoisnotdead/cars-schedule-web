@@ -1,5 +1,8 @@
+import { useNavigate } from "react-router-dom";
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="text-center px-6 py-12">
       {/* Encabezado */}
@@ -48,6 +51,31 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Sección de servicios */}
+      <section className="my-12">
+        <h2 className="text-2xl font-semibold text-zinc-50 mb-6">
+          Nuestros Servicios
+        </h2>
+        <p className="text-zinc-400 mb-6">
+          En Gye Cars ofrecemos servicios de alta calidad para mantener tu
+          vehículo en óptimas condiciones. Algunos de nuestros servicios
+          incluyen:
+        </p>
+        <ul className="text-zinc-400 list-disc list-inside mb-8">
+          <li>Cambio de aceite y filtros</li>
+          <li>Revisión de frenos</li>
+          <li>Alineación y balanceo</li>
+          <li>Diagnóstico computarizado</li>
+          <li>Revisión general y mantenimiento preventivo</li>
+        </ul>
+        {/* <button
+          className="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
+          onClick={() => navigate("/servicios")}
+        >
+          Ver todos los servicios
+        </button> */}
+      </section>
+
       {/* Llamado a la acción */}
       <section className="my-12">
         <h2 className="text-2xl font-semibold text-zinc-50 mb-6">
@@ -58,16 +86,11 @@ export const Home: React.FC = () => {
         </p>
         <button
           className="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
-          onClick={() => (window.location.href = "/agendar")}
+          onClick={() => navigate("/agendar")}
         >
           Agendar Cita
         </button>
       </section>
-
-      {/* Pie de página opcional */}
-      <footer className="mt-16 text-zinc-400 text-sm">
-        © {new Date().getFullYear()} Gye Cars. Todos los derechos reservados.
-      </footer>
     </div>
   );
 };
