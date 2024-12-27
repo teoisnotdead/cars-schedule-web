@@ -28,7 +28,7 @@ export const AppointmentManagement: React.FC = () => {
 
   const handleUpdateAppointment = async () => {
     if (!accessCode) {
-      setErrorMessage("El código de acceso es obligatorio.");
+      setErrorMessage("El código de reserva es obligatorio.");
       return;
     }
 
@@ -62,7 +62,7 @@ export const AppointmentManagement: React.FC = () => {
 
   const handleCancelAppointment = async () => {
     if (!accessCode) {
-      setErrorMessage("El código de acceso es obligatorio para cancelar la cita.");
+      setErrorMessage("El código de reserva es obligatorio para cancelar la cita.");
       return;
     }
 
@@ -100,14 +100,14 @@ export const AppointmentManagement: React.FC = () => {
       <div className="max-w-md mx-auto">
         <div className="mb-4">
           <label className="block text-lg font-semibold mb-2 text-zinc-50">
-            Código de acceso
+            Código de reserva
           </label>
           <input
             type="text"
             className="w-full p-3 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
             value={accessCode}
             onChange={(e) => setAccessCode(e.target.value)}
-            placeholder="Ingresa tu código de acceso"
+            placeholder="Ingresa tu código de reserva"
             required
           />
           {errorMessage && !selectedAction && (
