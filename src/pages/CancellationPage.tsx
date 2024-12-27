@@ -15,7 +15,7 @@ export const CancellationPage: React.FC = () => {
         </p>
         {state?.accessCode && (
           <p className="text-sm text-gray-400">
-            Código de acceso: <span className="text-white">{state.accessCode}</span>
+            Código de reserva: <span className="text-white">{state.accessCode}</span>
           </p>
         )}
         <p className="text-sm text-gray-400 mt-4">
