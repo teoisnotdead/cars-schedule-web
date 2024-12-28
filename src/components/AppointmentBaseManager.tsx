@@ -22,13 +22,8 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
   const [isHoursLoading, setIsHoursLoading] = useState(false);
 
   const getWeekDays = (date: Date): Date[] => {
-    const startOfWeek = new Date(date);
-    const day = startOfWeek.getDay();
-    const diff = day === 0 ? -6 : 1 - day;
-    startOfWeek.setDate(startOfWeek.getDate() + diff);
-
     return Array.from({ length: 7 }).map((_, i) => {
-      const day = new Date(startOfWeek);
+      const day = new Date(date);
       day.setDate(day.getDate() + i);
       return day;
     });
