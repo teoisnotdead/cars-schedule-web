@@ -23,7 +23,7 @@ export const NavMenu = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <NavLink to="/" className="text-white font-bold text-lg">
-              Gye Cars
+              Cambia tu aceite <span className="text-zinc-50">|</span> Gye Cars
             </NavLink>
           </div>
 

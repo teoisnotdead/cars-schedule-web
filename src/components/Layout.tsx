@@ -14,13 +14,21 @@ export const LayoutComponent = ({ children }: LayoutProps) => {
       </header>
 
       {/* Contenido principal */}
-      <main className="flex-grow p-4 flex justify-center items-center">
-        <div className="max-w-screen-lg w-full">{children}</div>
+      <main className="flex-grow">
+        {children}
       </main>
 
       {/* Footer */}
       <footer className="bg-zinc-800 text-zinc-400 text-center py-4">
-        © 2024 Gye Cars, Desarrollado por <a href="https://github.com/teoisnotdead" target="_blank" className="text-blue-500">TEODEV</a>
+        © 2024 www.cambiatuaceite.cl by Gye Cars, Desarrollado por{" "}
+        <a
+          href="https://github.com/teoisnotdead"
+          target="_blank"
+          className="text-blue-500"
+          rel="noopener noreferrer"
+        >
+          TEODEV
+        </a>
       </footer>
     </div>
   );
