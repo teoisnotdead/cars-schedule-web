@@ -2,15 +2,13 @@ interface DaySelectorProps {
   weekDays: Date[];
   selectedDate: Date;
   onDayClick: (day: Date) => void;
-  isPastDay: (day: Date) => boolean;
-  formatDate: (date: Date, formatType: "day" | "numeric") => string;
+  formatDate: (date: Date, formatType: "day" | "dayMonth") => string;
 }
 
 export const DaySelector: React.FC<DaySelectorProps> = ({
   weekDays,
   selectedDate,
   onDayClick,
-  isPastDay,
   formatDate,
 }) => (
   <nav
@@ -20,21 +18,17 @@ export const DaySelector: React.FC<DaySelectorProps> = ({
     {weekDays.map((day) => (
       <button
         key={day.toISOString()}
-        onClick={() => !isPastDay(day) && onDayClick(day)}
+        onClick={() => onDayClick(day)}
         className={`px-4 py-2 rounded-md text-sm sm:text-base capitalize ${selectedDate.toDateString() === day.toDateString()
-          ? "bg-blue-600 text-white"
-          : isPastDay(day)
-            ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+            ? "bg-blue-600 text-white"
             : "bg-zinc-700 text-white hover:bg-zinc-600"
           }`}
-        disabled={isPastDay(day)}
       >
         <time dateTime={day.toISOString()} className="block font-bold">
           {formatDate(day, "day")}
         </time>
-        <span>{formatDate(day, "numeric")}</span>
+        <span className="normal-case">{formatDate(day, "dayMonth")}</span>
       </button>
     ))}
   </nav>
 );
-

@@ -31,6 +31,10 @@ export const Schedule: React.FC = () => {
       userForm.email.trim() !== "" &&
       userForm.address.trim() !== "" &&
       userForm.phone.trim() !== "" &&
+      userForm.patente.trim() !== "" &&
+      userForm.brand.trim() !== "" &&
+      userForm.model.trim() !== "" &&
+      userForm.year.trim() !== "" &&
       selectedDate !== "" &&
       selectedHour !== ""
     );
@@ -42,8 +46,20 @@ export const Schedule: React.FC = () => {
       const payload = {
         date: selectedDate,
         time: selectedHour,
-        user: userForm,
+        user: {
+          name: userForm.name,
+          email: userForm.email,
+          address: userForm.address,
+          phone: userForm.phone,
+        },
+        car: {
+          patente: userForm.patente,
+          brand: userForm.brand,
+          model: userForm.model,
+          year: userForm.year,
+        },
       };
+
       const response = await axios.post(
         "https://gye-cars-schedule.deno.dev/appointments",
         payload
@@ -55,6 +71,7 @@ export const Schedule: React.FC = () => {
       setIsLoading(false);
     }
   };
+
 
   return (
     <section className="text-center max-w-5xl mx-auto px-6">

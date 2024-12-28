@@ -97,14 +97,13 @@ export const AppointmentManagement: React.FC = () => {
     <section className="text-center max-w-5xl mx-auto px-6">
       <h2 className="text-4xl font-extrabold mb-6">Gestión de Citas</h2>
 
-      <div className="max-w-md mx-auto">
         <div className="mb-4">
           <label className="block text-lg font-semibold mb-2 text-zinc-50">
             Código de reserva
           </label>
           <input
             type="text"
-            className="w-full p-3 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+            className="max-w-md w-full p-3 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
             value={accessCode}
             onChange={(e) => setAccessCode(e.target.value)}
             placeholder="Ingresa tu código de reserva"
@@ -159,7 +158,7 @@ export const AppointmentManagement: React.FC = () => {
           <button
             type="button"
             onClick={handleCancelAppointment}
-            className="px-6 py-3 w-full bg-red-600 text-white font-bold rounded-md hover:bg-red-700 disabled:bg-red-400 disabled:cursor-not-allowed"
+            className="max-w-md w-full px-6 py-3 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 disabled:bg-red-400 disabled:cursor-not-allowed"
             disabled={isLoading}
           >
             {isLoading ? "Procesando..." : "Confirmar Cancelación"}
@@ -173,7 +172,6 @@ export const AppointmentManagement: React.FC = () => {
         {successMessage && (
           <p className="mt-4 text-sm text-green-500">{successMessage}</p>
         )}
-      </div>
     </section>
   );
 };

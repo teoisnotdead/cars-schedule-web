@@ -80,6 +80,15 @@ export const UserForm: React.FC<UserFormProps> = ({
       onChange={onInputChange}
       required
     />
+    <input
+      type="text"
+      name="year"
+      placeholder="Año"
+      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      value={userForm.year}
+      onChange={onInputChange}
+      required
+    />
     <button
       type="submit"
       className="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed"

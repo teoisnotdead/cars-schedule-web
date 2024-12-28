@@ -76,11 +76,13 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
     setSelectedHour("");
   };
 
-  const formatDate = (date: Date, formatType: "day" | "numeric"): string => {
+  const formatDate = (date: Date, formatType: "day" | "dayMonth"): string => {
     const options: Intl.DateTimeFormatOptions =
-      formatType === "day" ? { weekday: "long" } : { day: "2-digit" };
+      formatType === "day"
+        ? { weekday: "long" }
+        : { day: "2-digit", month: "long" };
 
-    return date.toLocaleDateString("es-CL", options);
+    return date.toLocaleDateString("es-CL", options).replace("-", " de ");
   };
 
   return (
@@ -89,13 +91,6 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
         weekDays={weekDays}
         selectedDate={selectedDate}
         onDayClick={handleDayClick}
-        isPastDay={(day) => {
-          const today = new Date();
-          today.setHours(0, 0, 0, 0);
-          const selectedDay = new Date(day);
-          selectedDay.setHours(0, 0, 0, 0);
-          return selectedDay < today;
-        }}
         formatDate={formatDate}
       />
 

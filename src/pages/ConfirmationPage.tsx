@@ -5,8 +5,9 @@ export const ConfirmationPage: React.FC = () => {
   const navigate = useNavigate();
 
   const { state } = location || {};
-  const { user, date, time } = state?.data || {};
+  const { user, car, date, time } = state?.data || {};
   const { name, email, address, phone } = user || {};
+  const { patente, brand, model, year } = car || {};
 
   console.log('state', state);
 
@@ -53,6 +54,18 @@ export const ConfirmationPage: React.FC = () => {
           </p>
           <p>
             <span className="font-bold">Hora:</span> {time}
+          </p>
+          <p>
+            <span className="font-bold">Patente:</span> {patente}
+          </p>
+          <p>
+            <span className="font-bold">Marca:</span> {brand}
+          </p>
+          <p>
+            <span className="font-bold">Modelo:</span> {model}
+          </p>
+          <p>
+            <span className="font-bold">Año:</span> {year}
           </p>
         </div>
       </article>
