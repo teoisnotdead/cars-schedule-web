@@ -8,13 +8,31 @@ export const Home: React.FC = () => {
       {/* Encabezado */}
       <header className="mb-8">
         <h1 className="text-4xl font-bold text-zinc-50">
-          Bienvenido a <span className="text-blue-500">Gye Cars</span>
+          <span className="text-blue-500">Cambia tu aceite</span>
         </h1>
+
         <p className="text-lg text-zinc-400 mt-4">
           Simplificamos la manera en la que programas tus citas. Elige una fecha,
           selecciona un horario, ¡y listo!
         </p>
       </header>
+
+
+      {/* Llamado a la acción */}
+      <section className="my-12">
+        <h2 className="text-2xl font-semibold text-zinc-50 mb-6">
+          Agenda tu cita ahora
+        </h2>
+        <p className="text-zinc-400 mb-8">
+          Haz clic en el botón de "Agendar" para iniciar el proceso.
+        </p>
+        <button
+          className="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
+          onClick={() => navigate("/agendar")}
+        >
+          Agendar Cita
+        </button>
+      </section>
 
       {/* Sección de características */}
       <section className="my-12">
@@ -76,21 +94,6 @@ export const Home: React.FC = () => {
         </button> */}
       </section>
 
-      {/* Llamado a la acción */}
-      <section className="my-12">
-        <h2 className="text-2xl font-semibold text-zinc-50 mb-6">
-          Agenda tu cita ahora
-        </h2>
-        <p className="text-zinc-400 mb-8">
-          Haz clic en el botón de "Agendar" para iniciar el proceso.
-        </p>
-        <button
-          className="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
-          onClick={() => navigate("/agendar")}
-        >
-          Agendar Cita
-        </button>
-      </section>
     </div>
   );
 };
