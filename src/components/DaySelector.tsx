@@ -37,3 +37,4 @@ export const DaySelector: React.FC<DaySelectorProps> = ({
     ))}
   </nav>
 );
+

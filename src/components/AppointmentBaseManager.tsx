@@ -85,9 +85,16 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
         weekDays={weekDays}
         selectedDate={selectedDate}
         onDayClick={handleDayClick}
-        isPastDay={(day) => day < new Date()}
+        isPastDay={(day) => {
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          const selectedDay = new Date(day);
+          selectedDay.setHours(0, 0, 0, 0);
+          return selectedDay < today;
+        }}
         formatDate={formatDate}
       />
+
       <AvailableHours
         availableHours={availableHours}
         selectedHour={selectedHour}
