@@ -10,8 +10,8 @@ interface ApiError {
 export const AppointmentManagement: React.FC = () => {
   const [accessCode, setAccessCode] = useState("");
   const [selectedAction, setSelectedAction] = useState<"update" | "cancel" | "">("");
-  const [selectedDate, setSelectedDate] = useState<string>(""); // Estado para la fecha seleccionada
-  const [selectedHour, setSelectedHour] = useState<string>(""); // Estado para la hora seleccionada
+  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedHour, setSelectedHour] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -22,8 +22,8 @@ export const AppointmentManagement: React.FC = () => {
     setSelectedAction(action);
     setErrorMessage("");
     setSuccessMessage("");
-    setSelectedDate(""); // Resetear la fecha seleccionada
-    setSelectedHour(""); // Resetear la hora seleccionada
+    setSelectedDate("");
+    setSelectedHour("");
   };
 
   const handleUpdateAppointment = async () => {
@@ -94,7 +94,7 @@ export const AppointmentManagement: React.FC = () => {
   };
 
   return (
-    <section className="text-center px-4 mt-14 md:mt-0">
+    <section className="text-center max-w-5xl mx-auto px-6">
       <h2 className="text-4xl font-extrabold mb-6">Gestión de Citas</h2>
 
       <div className="max-w-md mx-auto">
