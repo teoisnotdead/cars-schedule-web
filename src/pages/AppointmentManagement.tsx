@@ -147,7 +147,7 @@ export const AppointmentManagement: React.FC = () => {
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-6 py-3 mt-4 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed"
+              className="px-6 py-3 my-4 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed"
               disabled={isLoading || !selectedDate || !selectedHour}
             >
               {isLoading ? "Procesando..." : "Confirmar Modificación"}

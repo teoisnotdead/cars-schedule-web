@@ -14,7 +14,7 @@ export const DaySelector: React.FC<DaySelectorProps> = ({
   formatDate,
 }) => (
   <nav
-    className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-6"
+    className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 mb-6"
     aria-label="Seleccionar día"
   >
     {weekDays.map((day) => (
@@ -22,10 +22,10 @@ export const DaySelector: React.FC<DaySelectorProps> = ({
         key={day.toISOString()}
         onClick={() => !isPastDay(day) && onDayClick(day)}
         className={`px-4 py-2 rounded-md text-sm sm:text-base capitalize ${selectedDate.toDateString() === day.toDateString()
-            ? "bg-blue-600 text-white"
-            : isPastDay(day)
-              ? "bg-gray-500 text-gray-300 cursor-not-allowed"
-              : "bg-zinc-700 text-white hover:bg-zinc-600"
+          ? "bg-blue-600 text-white"
+          : isPastDay(day)
+            ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+            : "bg-zinc-700 text-white hover:bg-zinc-600"
           }`}
         disabled={isPastDay(day)}
       >

@@ -1,5 +1,5 @@
 interface UserFormProps {
-  userForm: { name: string; email: string; address: string; phone: string };
+  userForm: { name: string; email: string; address: string; phone: string; patente: string; brand: string; model: string; year: string; };
   onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   isFormValid: boolean;
@@ -14,7 +14,7 @@ export const UserForm: React.FC<UserFormProps> = ({
   isLoading,
 }) => (
   <form
-    className="flex flex-col gap-4 max-w-md mx-auto"
+    className="flex flex-col gap-4 max-w-md mx-auto mb-4"
     onSubmit={onSubmit}
   >
     <input
@@ -50,6 +50,33 @@ export const UserForm: React.FC<UserFormProps> = ({
       placeholder="Teléfono"
       className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
       value={userForm.phone}
+      onChange={onInputChange}
+      required
+    />
+    <input
+      type="text"
+      name="patente"
+      placeholder="Patente"
+      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      value={userForm.patente}
+      onChange={onInputChange}
+      required
+    />
+    <input
+      type="text"
+      name="brand"
+      placeholder="Marca"
+      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      value={userForm.brand}
+      onChange={onInputChange}
+      required
+    />
+    <input
+      type="text"
+      name="model"
+      placeholder="Modelo"
+      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      value={userForm.model}
       onChange={onInputChange}
       required
     />

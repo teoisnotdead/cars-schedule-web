@@ -6,14 +6,18 @@ import axios from "axios";
 
 export const Schedule: React.FC = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false); // Estado de carga
-  const [selectedDate, setSelectedDate] = useState<string>(""); // Estado para la fecha seleccionada
-  const [selectedHour, setSelectedHour] = useState<string>(""); // Estado para la hora seleccionada
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedHour, setSelectedHour] = useState<string>("");
   const [userForm, setUserForm] = useState({
     name: "",
     email: "",
     address: "",
     phone: "",
+    patente: "",
+    brand: "",
+    model: "",
+    year: "",
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +37,7 @@ export const Schedule: React.FC = () => {
   };
 
   const handleCreateAppointment = async () => {
-    setIsLoading(true); // Activar el estado de carga
+    setIsLoading(true);
     try {
       const payload = {
         date: selectedDate,
@@ -44,11 +48,11 @@ export const Schedule: React.FC = () => {
         "https://gye-cars-schedule.deno.dev/appointments",
         payload
       );
-      navigate("/confirmacion", { state: response.data }); // Redirigir con los datos
+      navigate("/confirmacion", { state: response.data });
     } catch (error) {
       console.error("Error al crear la cita:", error);
     } finally {
-      setIsLoading(false); // Desactivar el estado de carga
+      setIsLoading(false);
     }
   };
 

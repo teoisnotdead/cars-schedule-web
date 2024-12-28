@@ -22,12 +22,21 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
   const [isHoursLoading, setIsHoursLoading] = useState(false);
 
   const getWeekDays = (date: Date): Date[] => {
-    return Array.from({ length: 7 }).map((_, i) => {
-      const day = new Date(date);
-      day.setDate(day.getDate() + i);
-      return day;
-    });
+    const days: Date[] = [];
+    let currentDate = new Date(date);
+
+    while (days.length < 7) {
+      // Excluye los domingos
+      if (currentDate.getDay() !== 0) {
+        days.push(new Date(currentDate));
+      }
+      // Avanza al día siguiente
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+
+    return days;
   };
+
 
   const weekDays = getWeekDays(new Date());
 
