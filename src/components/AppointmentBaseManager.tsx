@@ -1,3 +1,49 @@
+// Función para obtener el primer día disponible (excluyendo domingos)
+const getFirstAvailableDay = (): Date => {
+  const today = new Date();
+  let currentDate = new Date(today);
+
+  // Avanza hasta encontrar un día que no sea domingo
+  while (currentDate.getDay() === 0) {
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+
+  return currentDate;
+};
+
+// Función para obtener los días de la semana excluyendo domingos
+const getWeekDays = (date: Date): Date[] => {
+  const days: Date[] = [];
+  let currentDate = new Date(date);
+
+  while (days.length < 7) {
+    // Excluye los domingos
+    if (currentDate.getDay() !== 0) {
+      days.push(new Date(currentDate));
+    }
+    // Avanza al día siguiente
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+
+  return days;
+};
+
+// Formatea la fecha para enviarla a la API
+const formatDateForApi = (date: Date): string => {
+  const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+  return localDate.toISOString().split("T")[0];
+};
+
+// Formatea la fecha para mostrarla en la UI
+const formatDate = (date: Date, formatType: "day" | "dayMonth"): string => {
+  const options: Intl.DateTimeFormatOptions =
+    formatType === "day"
+      ? { weekday: "long" }
+      : { day: "2-digit", month: "long" };
+
+  return date.toLocaleDateString("es-CL", options).replace("-", " de ");
+};
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { DaySelector } from "../components/DaySelector";
@@ -16,34 +62,12 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
   initialDate,
   initialHour,
 }) => {
-  const [selectedDate, setSelectedDate] = useState<Date>(initialDate || new Date());
+  const [selectedDate, setSelectedDate] = useState<Date>(initialDate || getFirstAvailableDay());
   const [availableHours, setAvailableHours] = useState<string[]>([]);
   const [selectedHour, setSelectedHour] = useState<string>(initialHour || "");
   const [isHoursLoading, setIsHoursLoading] = useState(false);
 
-  const getWeekDays = (date: Date): Date[] => {
-    const days: Date[] = [];
-    let currentDate = new Date(date);
-
-    while (days.length < 7) {
-      // Excluye los domingos
-      if (currentDate.getDay() !== 0) {
-        days.push(new Date(currentDate));
-      }
-      // Avanza al día siguiente
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-
-    return days;
-  };
-
-
   const weekDays = getWeekDays(new Date());
-
-  const formatDateForApi = (date: Date): string => {
-    const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
-    return localDate.toISOString().split("T")[0];
-  };
 
   const fetchAvailableHours = async (date: Date): Promise<void> => {
     const formattedDate = formatDateForApi(date);
@@ -74,15 +98,6 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
   const handleDayClick = (day: Date) => {
     setSelectedDate(day);
     setSelectedHour("");
-  };
-
-  const formatDate = (date: Date, formatType: "day" | "dayMonth"): string => {
-    const options: Intl.DateTimeFormatOptions =
-      formatType === "day"
-        ? { weekday: "long" }
-        : { day: "2-digit", month: "long" };
-
-    return date.toLocaleDateString("es-CL", options).replace("-", " de ");
   };
 
   return (

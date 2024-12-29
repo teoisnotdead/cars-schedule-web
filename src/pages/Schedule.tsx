@@ -4,6 +4,37 @@ import { UserForm } from "../components/UserForm";
 import { useState } from "react";
 import axios from "axios";
 
+// Validar si el formulario es válido
+const isFormValid = (userForm: Record<string, string>, selectedDate: string, selectedHour: string): boolean => {
+  return (
+    Object.values(userForm).every((value) => value.trim() !== "") &&
+    selectedDate !== "" &&
+    selectedHour !== ""
+  );
+};
+
+// Crear el payload para la API
+const createAppointmentPayload = (
+  userForm: Record<string, string>,
+  selectedDate: string,
+  selectedHour: string
+) => ({
+  date: selectedDate,
+  time: selectedHour,
+  user: {
+    name: userForm.name,
+    email: userForm.email,
+    address: userForm.address,
+    phone: userForm.phone,
+  },
+  car: {
+    patente: userForm.patente,
+    brand: userForm.brand,
+    model: userForm.model,
+    year: userForm.year,
+  },
+});
+
 export const Schedule: React.FC = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
@@ -25,41 +56,10 @@ export const Schedule: React.FC = () => {
     setUserForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const isFormValid = (): boolean => {
-    return (
-      userForm.name.trim() !== "" &&
-      userForm.email.trim() !== "" &&
-      userForm.address.trim() !== "" &&
-      userForm.phone.trim() !== "" &&
-      userForm.patente.trim() !== "" &&
-      userForm.brand.trim() !== "" &&
-      userForm.model.trim() !== "" &&
-      userForm.year.trim() !== "" &&
-      selectedDate !== "" &&
-      selectedHour !== ""
-    );
-  };
-
   const handleCreateAppointment = async () => {
     setIsLoading(true);
     try {
-      const payload = {
-        date: selectedDate,
-        time: selectedHour,
-        user: {
-          name: userForm.name,
-          email: userForm.email,
-          address: userForm.address,
-          phone: userForm.phone,
-        },
-        car: {
-          patente: userForm.patente,
-          brand: userForm.brand,
-          model: userForm.model,
-          year: userForm.year,
-        },
-      };
-
+      const payload = createAppointmentPayload(userForm, selectedDate, selectedHour);
       const response = await axios.post(
         "https://gye-cars-schedule.deno.dev/appointments",
         payload
@@ -71,7 +71,6 @@ export const Schedule: React.FC = () => {
       setIsLoading(false);
     }
   };
-
 
   return (
     <section className="text-center max-w-5xl mx-auto px-6">
@@ -85,11 +84,11 @@ export const Schedule: React.FC = () => {
       <UserForm
         userForm={userForm}
         onInputChange={handleInputChange}
-        isFormValid={isFormValid()}
+        isFormValid={isFormValid(userForm, selectedDate, selectedHour)}
         isLoading={isLoading}
         onSubmit={(e) => {
           e.preventDefault();
-          if (isFormValid()) {
+          if (isFormValid(userForm, selectedDate, selectedHour)) {
             handleCreateAppointment();
           }
         }}
