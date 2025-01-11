@@ -3,7 +3,7 @@ import { MapImage } from "../MapImage";
 
 export const MapSection: React.FC = () => {
   return (
-    <section className="my-12 flex flex-col items-center">
+    <section className="my-12 flex flex-col items-center text-center">
       <h2 className="text-3xl font-semibold text-zinc-50 mb-6">
         Comunidades Habilitadas
       </h2>
