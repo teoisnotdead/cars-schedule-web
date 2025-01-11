@@ -8,14 +8,14 @@ export const HeroSection: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center opacity-70"
         style={{
-          backgroundImage: 'url(/path-to-your-image.jpg)', // Cambia por la ruta de tu imagen
+          backgroundImage: 'url(/bg-hero.webp)',
         }}
       ></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
+        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
           Cambio de Aceite
         </h1>
-        <p className="text-lg sm:text-xl text-zinc-200 mb-6">
+        <p className="text-lg sm:text-xl text-zinc-200 mb-6 drop-shadow-lg">
           Reserva tu cita de cambio de aceite en línea con el mejor servicio.
         </p>
         <button
