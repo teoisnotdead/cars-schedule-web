@@ -19,7 +19,7 @@ const features = [
 export const FeaturesSection: React.FC = () => {
   return (
     <section className="my-12 flex flex-col items-center">
-      <h2 className="text-2xl font-semibold text-zinc-50 mb-6">
+      <h2 className="text-3xl font-semibold text-zinc-50 mb-6">
         ¿Por qué elegirnos?
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
