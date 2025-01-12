@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /?ND
+Disallow: /2024/04/29/hello-world/
+Disallow: /author/admin_ctaceite/
+Disallow: /?SA
 
 Sitemap: https://cambiatuaceite.cl/sitemap.xml
