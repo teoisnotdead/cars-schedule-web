@@ -9,9 +9,9 @@ export const Home: React.FC = () => {
     <div>
       <HeroSection />
       <div className="max-w-5xl mx-auto px-6">
+        <MapSection />
         <ServicesSection />
         <FeaturesSection />
-        <MapSection />
         <ContactSection />
       </div>
     </div>
