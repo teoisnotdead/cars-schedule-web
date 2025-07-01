@@ -24,12 +24,12 @@ export const ServicesSection: React.FC = () => {
         {services.map((service, index) => (
           <div
             key={index}
-            className="p-6 bg-zinc-800 rounded shadow-md border border-transparent transition duration-300 hover:bg-zinc-900 hover:border-zinc-200"
+            className="p-6 rounded-2xl bg-transparent border border-zinc-800 shadow-lg transition-all duration-300 hover:scale-105 hover:border-cyan-400 hover:shadow-cyan-900/40 backdrop-blur-md"
           >
-            <h3 className="text-lg font-bold text-blue-500 mb-2">
+            <h3 className="text-lg font-bold text-cyan-400 mb-2 drop-shadow">
               {service.title}
             </h3>
-            <p className="text-zinc-400">{service.description}</p>
+            <p className="text-zinc-300">{service.description}</p>
           </div>
         ))}
       </div>

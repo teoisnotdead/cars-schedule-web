@@ -19,9 +19,9 @@ export const DaySelector: React.FC<DaySelectorProps> = ({
       <button
         key={day.toISOString()}
         onClick={() => onDayClick(day)}
-        className={`px-4 py-2 rounded-md text-sm sm:text-base capitalize ${selectedDate.toDateString() === day.toDateString()
-            ? "bg-blue-600 text-white"
-            : "bg-zinc-700 text-white hover:bg-zinc-600"
+        className={`px-4 py-2 rounded-lg text-sm sm:text-base capitalize font-semibold shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 ${selectedDate.toDateString() === day.toDateString()
+            ? "bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-800 text-white scale-105"
+            : "bg-zinc-800 text-cyan-200 hover:bg-cyan-900 hover:text-white hover:scale-105"
           }`}
       >
         <time dateTime={day.toISOString()} className="block font-bold">

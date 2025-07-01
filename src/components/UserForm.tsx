@@ -21,7 +21,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="text"
       name="name"
       placeholder="Nombre completo"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.name}
       onChange={onInputChange}
       required
@@ -30,7 +30,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="email"
       name="email"
       placeholder="Correo electrónico"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.email}
       onChange={onInputChange}
       required
@@ -39,7 +39,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="text"
       name="address"
       placeholder="Dirección"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.address}
       onChange={onInputChange}
       required
@@ -48,7 +48,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="tel"
       name="phone"
       placeholder="Teléfono"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.phone}
       onChange={onInputChange}
       required
@@ -57,7 +57,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="text"
       name="patente"
       placeholder="Patente"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.patente}
       onChange={onInputChange}
       required
@@ -66,7 +66,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="text"
       name="brand"
       placeholder="Marca"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.brand}
       onChange={onInputChange}
       required
@@ -75,7 +75,7 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="text"
       name="model"
       placeholder="Modelo"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.model}
       onChange={onInputChange}
       required
@@ -84,18 +84,18 @@ export const UserForm: React.FC<UserFormProps> = ({
       type="text"
       name="year"
       placeholder="Año"
-      className="p-3 sm:p-4 rounded-md bg-zinc-800 text-white focus:ring-2 focus:ring-blue-500"
+      className="p-3 sm:p-4 rounded-lg bg-zinc-900 text-cyan-200 focus:ring-2 focus:ring-cyan-400 shadow-md placeholder-zinc-500"
       value={userForm.year}
       onChange={onInputChange}
       required
     />
     <button
       type="submit"
-      className="px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed"
+      className="px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-800 text-white font-bold rounded-xl shadow-lg hover:scale-105 hover:from-cyan-400 hover:to-blue-700 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 disabled:bg-cyan-900/40 disabled:cursor-not-allowed"
       disabled={!isFormValid || isLoading}
     >
       {isLoading ? (
-        <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4 sm:w-5 sm:h-5 inline-block"></span>
+        <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-5 h-5 inline-block"></span>
       ) : (
         "Confirmar Cita"
       )}

@@ -34,9 +34,9 @@ export const AvailableHours: React.FC<AvailableHoursProps> = ({
         <li key={hour}>
           <button
             onClick={() => onHourClick(hour)}
-            className={`px-4 py-2 rounded-md text-sm sm:text-base ${selectedHour === hour
-                ? "bg-green-600 text-white"
-                : "bg-zinc-700 text-white hover:bg-zinc-600"
+            className={`px-4 py-2 rounded-lg text-sm sm:text-base font-semibold shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400 ${selectedHour === hour
+                ? "bg-gradient-to-r from-cyan-500 via-blue-600 to-blue-800 text-white scale-105"
+                : "bg-zinc-800 text-cyan-200 hover:bg-cyan-900 hover:text-white hover:scale-105"
               }`}
           >
             {hour}
