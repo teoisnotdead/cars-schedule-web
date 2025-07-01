@@ -74,7 +74,7 @@ export const AppointmentBaseManager: React.FC<AppointmentBaseManagerProps> = ({
     setIsHoursLoading(true);
     try {
       const response = await axios.get(
-        `https://gye-cars-schedule.deno.dev/appointments/available-hours?date=${formattedDate}`
+        `https://gye-car-app-710312144426.southamerica-west1.run.app/appointments/available-hours?date=${formattedDate}`
       );
       setAvailableHours(response.data.data);
     } catch (error) {

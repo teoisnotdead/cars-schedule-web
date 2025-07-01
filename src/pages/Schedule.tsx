@@ -61,7 +61,7 @@ export const Schedule: React.FC = () => {
     try {
       const payload = createAppointmentPayload(userForm, selectedDate, selectedHour);
       const response = await axios.post(
-        "https://gye-cars-schedule.deno.dev/appointments",
+        "https://gye-car-app-710312144426.southamerica-west1.run.app/appointments",
         payload
       );
       navigate("/confirmacion", { state: response.data });

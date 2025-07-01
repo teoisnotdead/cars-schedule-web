@@ -46,7 +46,7 @@ export const AppointmentManagement: React.FC = () => {
         time: selectedHour,
       };
       const response = await axios.put(
-        "https://gye-cars-schedule.deno.dev/appointments",
+        "https://gye-car-app-710312144426.southamerica-west1.run.app/appointments",
         payload
       );
       navigate("/confirmacion", { state: response.data });
@@ -70,7 +70,7 @@ export const AppointmentManagement: React.FC = () => {
     setErrorMessage("");
     try {
       const response = await axios.post(
-        "https://gye-cars-schedule.deno.dev/appointments/cancel",
+        "https://gye-car-app-710312144426.southamerica-west1.run.app/appointments/cancel",
         { accessCode }
       );
       setSuccessMessage("Cita cancelada correctamente.");

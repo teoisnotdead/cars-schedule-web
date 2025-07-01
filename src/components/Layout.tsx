@@ -22,7 +22,7 @@ export const LayoutComponent = ({ children }: LayoutProps) => {
       <footer className="bg-zinc-800 text-zinc-400 text-center py-4">
         © 2024 www.cambiatuaceite.cl by Gye Car, Desarrollado por{" "}
         <a
-          href="https://teoisnotdead.github.io/"
+          href="https://teodev.cl"
           target="_blank"
           className="text-blue-500"
           rel="noopener noreferrer"
